@@ -1,7 +1,22 @@
-# IT Support Toolkit
+# IT Support Toolkit (v1.5)
 
-A PowerShell script by Ashim that automates common IT support tasks like system info, disk space, BitLocker status, Windows updates, and critical service checks.
+A PowerShell script by Ashim that automates common IT support diagnostics like system info, disk space, BitLocker status, Windows updates, and critical service checks, now with enhanced error detection and actionable insights.
 
+## Features (v1.5)
+
+- System information (OS, hostname, uptime, etc.)
+- Disk space summary for all drives
+- BitLocker encryption status
+- Recent Windows Update history
+- Battery health (for laptops)
+- Windows Defender AV status and threat history
+- Recent Windows Event Logs (Error & Critical only)
+- Network adapter and IP configuration
+- High CPU/memory usage processes
+- Check essential services (e.g., Windows Update, Print Spooler)
+- Displays whether device is Azure AD joined or not
+- Output saved as `System_Report.txt` on Desktop
+  
 ## How to Use
 
 1. Download the script , `IT-Support-Toolkit.ps1` file in the GitHub repo.
@@ -12,7 +27,7 @@ A PowerShell script by Ashim that automates common IT support tasks like system 
 
 ## Purpose
 
-This toolkit helps automate daily diagnostics for L1/L2 IT support roles to save time and reduce manual effort.
+This toolkit is designed to automate and streamline Level 1/2 IT support diagnostics, helping technicians resolve issues faster and identify root causes proactively.
 
 ---
 
