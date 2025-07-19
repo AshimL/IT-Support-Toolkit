@@ -1,4 +1,4 @@
-# IT Support Toolkit v1.5 - by Ashim
+# IT Support Toolkit v1.5
 # Description: Generates a detailed system health report for diagnostics.
 
 $reportPath = "$env:USERPROFILE\Desktop\System_Report.txt"
@@ -55,8 +55,15 @@ Try {
 
 # 11. Event Logs (Critical + Error - last 24h)
 "`n--- Event Log: Errors & Critical (Last 24 hours) ---" | Out-File $reportPath -Append
-Get-EventLog -LogName System -EntryType Error, Critical -After (Get-Date).AddDays(-1) |
-Select-Object TimeGenerated, Source, EventID, Message -First 20 | Out-File $reportPath -Append
+$filterHashTable = @{
+    LogName = 'System'
+    Level = @(1, 2) # 1 = Critical, 2 = Error
+    StartTime = (Get-Date).AddDays(-1)
+}
+
+Get-WinEvent -FilterHashtable $filterHashTable -MaxEvents 20 |
+Select-Object TimeCreated, ProviderName, Id, Message |
+Out-File $reportPath -Append
 
 # 12. Network Connectivity Test
 "`n--- Network Connectivity Test (Ping Google) ---" | Out-File $reportPath -Append
