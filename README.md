@@ -4,26 +4,26 @@ A PowerShell script by Ashim that automates common IT support diagnostics like s
 
 ## Features (v1.5)
 
-- System information (OS, hostname, uptime, etc.)
+- System information (OS name, architecture, version, build)
 - Disk space summary for all drives
-- BitLocker encryption status
-- Recent Windows Update history
-- Battery health (for laptops)
-- Windows Defender AV status and threat history
-- Recent Windows Event Logs (Error & Critical only)
-- Network adapter and IP configuration
-- High CPU/memory usage processes
-- Check essential services (e.g., Windows Update, Print Spooler)
-- Displays whether device is Azure AD joined or not
-- Output saved as `System_Report.txt` on Desktop
+- BitLocker encryption status for each volume
+- Recent installed Windows Updates (hotfix history)
+- Status of critical services (Print Spooler, Windows Update, Defender)
+- Network adapter and IP configuration details
+- Real time CPU load and available physical memory
+- List of installed applications with version and publisher
+- Startup programs with command and location
+- Windows Defender antivirus status and signature updates
+- Recent Windows Event Logs filtered for Errors and Criticals (last 24 hours)
+- Network connectivity test via ping to google.com
+- Output: Report saved as System_Report.txt on the Desktop
   
 ## How to Use
 
 1. Download the script , `IT-Support-Toolkit.ps1` file in the GitHub repo.
 2. Open PowerShell as Administrator.
-3. Run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`
-4. Navigate to the folder where you saved the script and run: `.\IT-Support-Toolkit.ps1`
-5. Check the generated `System_Report.txt` on your desktop.
+3. Run: powershell -ExecutionPolicy Bypass -File "$env:USERPROFILE\Desktop\IT-Support-Toolkit.ps1"
+4. Check the generated `System_Report.txt` on your desktop.
 
 ## Purpose
 
